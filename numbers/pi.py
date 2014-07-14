@@ -1,5 +1,33 @@
 import math
 
+def main():
+    digits = 0
+    print("PI Digits Calculator")
+    while True:
+        print("Enter '0' to quit")
+        digits = input("Enter the number of pi digits to display: ")
+        try:
+            digits = int(digits)
+        except ValueError:
+            print("Invalid number")
+            print("")
+            continue;
+        
+        if digits < 0:
+            print("Please enter a positive integer")
+            print("")
+            continue
+        
+        if digits == 0:
+            break
+    
+        pi = str(getPi(digits - 1))
+        if digits == 1:
+            print(pi)
+        else:
+            print(pi[0] + "." + pi[1:])
+        print("")
+
 def sqrt(n, one):
     """
     Return the square root of n as a fixed point number with the one
@@ -71,20 +99,6 @@ def getPi(digits):
     one = 10**digits
     sqrtC = sqrt(10005*one, one)
     return (Q*426880*sqrtC) // T
-
-    
-def main():
-    digits = 0
-    while True:
-        digits = input("Enter the number of pi digits: ")
-        digits = int(digits)
-        if digits <= 0:
-            print("Please enter a valid number.")
-        else:
-            break
-    
-    pi = str(getPi(digits))
-    print(pi[0] + "." + pi[1:])
 
 
 if __name__ == "__main__":

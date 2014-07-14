@@ -1,33 +1,50 @@
 def main():
+    print("Fibonacci Sequence Generator")
     while True:
         print("Please select a choice:")
-        print("   1) Generate Fibonacci sequence up to a number N")
-        print("   2) Generate the Nth Fibonacci number")
+        print("   1) Generate Fibonacci sequence up to N")
+        print("   2) Find the Nth Fibonacci number")
         print("   0) Quit")
         choice = input("Choice: ")
-        choice = int(choice)
+        try:
+            choice = int(choice)
+        except ValueError:
+            print("Invalid number")
+            print("")
+            continue
+        
         if choice in (1, 2):
-            n = input("Enter a number: ")
-            n = int(n)
-            if n <= 0:
-                print("Invalid number")
-                continue
+            while True:
+                n = input("Enter a number: ")
+                try:
+                    n = int(n)
+                except ValueError:
+                    print("Invalid number")
+                    continue
+                
+                if n <= 0:
+                    print("The number must be a positive integer")
+                    continue
+                break
         
         if choice == 0:
             break
         elif choice == 1:
             print("Fibonacci sequence up to ", n)
             fibonacciUpTo(n)
-            break
+            print("")
+            continue
         elif choice == 2:
             numberWord = getNumberWord(n)
             msg = "The " + numberWord
             msg += " fibonacci number is: "
             msg += str(nthFibonacci(n))
             print(msg)
-            break
+            print("")
+            continue
         else:
             print("Sorry, invalid choice.")
+            print("")
 
 def getNumberWord(number):
     word = str(number)
@@ -45,7 +62,7 @@ def getNumberWord(number):
 def fibonacciUpTo(n):
     prev = 0
     fib = 1
-    while fib < n:
+    while fib <= n:
         print(fib, end=" ")
         fib, prev = (prev + fib), fib
     print("")
