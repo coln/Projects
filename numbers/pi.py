@@ -20,7 +20,7 @@ def sqrt(n, one):
 
 
 def getPi(digits):
-    """Come on, because I would just know how to do this! It comes from here:
+    """The code/math comes from here:
     http://www.craig-wood.com/nick/articles/pi-chudnovsky/
     
     Compute int(pi * 10**digits)
