@@ -6,7 +6,7 @@ and height, using a cost entered by the user.
 def main():
     print("Price of tiling a WxH (in square feet) floor")
     while True:
-        print("Enter '0' to quit at anytime")
+        print("Enter '0' to quit")
         cost = getInput("cost", "Cost per square foot (in dollars): ")
         if cost == 0:
             break
